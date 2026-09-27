@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXUS - Landing Page Efeitos Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+*{scroll-behavior:smooth}
+body{background:#050507;color:white;font-family: 'Syne', system-ui, sans-serif; overflow-x:hidden}
+.display{font-family:'Syne', sans-serif; letter-spacing:-0.04em; font-weight:800}
+.serif{font-family:'Instrument Serif', serif}
+.glow{box-shadow:0 0 80px rgba(124,58,237,.4)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(40px,40px)}}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,15px)}}
+.reveal{opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1; transform:translateY(0)}
+.card-tilt{transition:transform .2s ease-out; transform-style:preserve-3d}
+#progress{position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#7c3aed,#06b6d4,#f472b6); z-index:9999; width:0}
+#cursor{position:fixed; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle, rgba(124,58,237,0.15), transparent 60%); pointer-events:none; z-index:5; transform:translate(-50%,-50%); mix-blend:screen; transition:opacity .3s}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="cursor"></div>
+
+<!-- NAV -->
+<nav id="nav" class="fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent">
+  <div class="max-w-[1200px] mx-auto px-6 h-[68px] flex items-center justify-between">
+    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-white text-black grid place-items-center font-black">N</div><span class="font-bold tracking-tight">NEXUS</span><span class="ml-3 text-[10px] tracking-[0.2em] px-2 py-1 rounded-full border border-white/10 text-white/50">V2.0</span></div>
+    <div class="hidden md:flex items-center gap-8 text-[13px] text-white/60"><a href="#features" class="hover:text-white">Recursos</a><a href="#precos" class="hover:text-white">Preços</a><a href="#depoimentos" class="hover:text-white">Cases</a></div>
+    <div class="flex items-center gap-3"><button class="hidden md:inline-flex h-9 px-5 rounded-full border border-white/10 bg-white/5 text-[13px]">Entrar</button><button class="h-9 px-5 rounded-full bg-white text-black text-[13px] font-semibold">Começar agora</button></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-[100vh] flex items-center overflow-hidden pt-20">
+  <div class="absolute inset-0 -z-10 bg-[#050507]">
+    <div class="absolute inset-0 opacity-60" style="background:radial-gradient(1200px circle at 20% 10%, rgba(124,58,237,0.35), transparent 50%), radial-gradient(1000px circle at 80% 30%, rgba(6,182,212,0.3), transparent 50%), radial-gradient(900px circle at 50% 90%, rgba(236,72,153,0.25), transparent 50%)"></div>
+    <canvas id="particles" class="absolute inset-0 w-full h-full"></canvas>
+    <div class="absolute left-[10%] top-[20%] w-[600px] h-[600px] rounded-full bg-violet-600/20 blur-[120px] animate-[float1_12s_ease-in-out_infinite]"></div>
+    <div class="absolute right-[5%] top-[30%] w-[500px] h-[500px] rounded-full bg-cyan-400/20 blur-[120px] animate-[float2_14s_ease-in-out_infinite]"></div>
+  </div>
+  <div class="max-w-[1200px] mx-auto px-6 w-full grid md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+    <div>
+      <div class="reveal inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-xl text-[11px] tracking-wide"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 12.743 criadores online agora • Novo modelo Nexus-4</div>
+      <h1 class="reveal display text-[48px] md:text-[84px] leading-[0.9] tracking-[-0.05em] mt-6">O futuro<br>não espera.<br><span class="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">A NEXUS</span><br><span class="serif italic font-normal">já chegou.</span></h1>
+      <p class="reveal mt-6 text-[18px] leading-[1.6] text-white/50 max-w-[520px]">A plataforma que une design, código e IA em um só lugar. Crie produtos extraordinários 10x mais rápido, sem abrir mão do polimento.</p>
+      <div class="reveal mt-8 flex flex-wrap gap-4">
+        <button class="magnetic group relative h-[52px] px-8 rounded-full bg-white text-black font-semibold overflow-hidden">Criar conta gratuita →<span class="absolute inset-0 -translate-x-full group-hover:translate-x-full duration-[1000ms] bg-gradient-to-r from-transparent via-black/10 to-transparent skew-x-12 transition-transform"></span></button>
+        <button class="magnetic h-[52px] px-8 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-xl">▶ Ver demo de 47s</button>
+      </div>
+      <div class="reveal mt-10 flex items-center gap-6 text-[12px] text-white/30">
+        <div class="flex -space-x-2"><div class="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 border-2 border-black"></div><div class="w-7 h-7 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 border-2 border-black"></div><div class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-400 to-blue-500 border-2 border-black"></div></div>
+        <span>Usado por times da Linear, Vercel, Stripe</span>
+      </div>
+    </div>
+    <div class="reveal relative">
+      <div id="heroCard" class="card-tilt relative rounded-[28px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] backdrop-blur-2xl p-4 shadow-[0_20px_80px_rgba(0,0,0,0.6)]">
+        <div class="rounded-[18px] overflow-hidden bg-[#0a0a0e] border border-white/5">
+          <div class="h-10 flex items-center gap-2 px-4 border-b border-white/5"><span class="w-3 h-3 rounded-full bg-red-500/80"></span><span class="w-3 h-3 rounded-full bg-yellow-500/80"></span><span class="w-3 h-3 rounded-full bg-green-500/80"></span><span class="ml-4 text-[11px] text-white/20">nexus.app — projeto • Aura</span></div>
+          <div class="p-6 space-y-4">
+            <div class="h-3 w-32 rounded-full bg-white/10"></div>
+            <div class="grid grid-cols-3 gap-3"><div class="h-20 rounded-xl bg-gradient-to-br from-violet-500/20 to-transparent border border-white/5"></div><div class="h-20 rounded-xl bg-gradient-to-br from-cyan-400/20 to-transparent border border-white/5"></div><div class="h-20 rounded-xl bg-gradient-to-br from-fuchsia-500/20 to-transparent border border-white/5"></div></div>
+            <div class="h-24 rounded-xl bg-white/[0.03] border border-white/5"></div>
+          </div>
+        </div>
+        <div class="absolute -bottom-6 -right-6 px-4 py-3 rounded-2xl bg-white text-black shadow-xl"><div class="text-[11px] font-bold">⚡ Deploy feito</div><div class="text-[11px] opacity-60">em 0.8s • 3 regiões</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="relative py-24 border-t border-white/[0.06] bg-[#08080b]">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between gap-6 mb-14">
+      <h2 class="reveal display text-[36px] md:text-[56px] leading-[0.9]">Tudo que você precisa<br>para <span class="serif italic font-normal">criar sem limites.</span></h2>
+      <p class="reveal text-[15px] text-white/40 max-w-[360px]">Seis pilares que transformam sua ideia em produto pronto para escala global, com obsessão por detalhe.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="feature-card reveal group relative rounded-[24px] border border-white/[0.08] bg-white/[0.02] p-7 overflow-hidden"><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition" style="background:radial-gradient(600px circle at var(--mx) var(--my), rgba(124,58,237,0.15), transparent 60%)"></div><div class="relative"><div class="w-10 h-10 rounded-xl bg-white/5 grid place-items-center text-[18px]">⚡</div><h3 class="mt-4 font-semibold">Performance Extrema</h3><p class="mt-2 text-[13px] text-white/40 leading-[1.6]">Edge global, latência zero, impacto máximo.</p></div></div>
+      <div class="feature-card reveal group relative rounded-[24px] border border-white/[0.08] bg-white/[0.02] p-7 overflow-hidden"><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition" style="background:radial-gradient(600px circle at var(--mx) var(--my), rgba(6,182,212,0.15), transparent 60%)"></div><div class="relative"><div class="w-10 h-10 rounded-xl bg-white/5 grid place-items-center text-[18px]">🚀</div><h3 class="mt-4 font-semibold">Deploy Instantâneo</h3><p class="mt-2 text-[13px] text-white/40 leading-[1.6]">Do commit ao ar em 0.8s com CI/CD inteligente.</p></div></div>
+      <div class="feature-card reveal group relative rounded-[24px] border border-white/[0.08] bg-white/[0.02] p-7 overflow-hidden"><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition" style="background:radial-gradient(600px circle at var(--mx) var(--my), rgba(236,72,153,0.15), transparent 60%)"></div><div class="relative"><div class="w-10 h-10 rounded-xl bg-white/5 grid place-items-center text-[18px]">🧠</div><h3 class="mt-4 font-semibold">IA Nativa</h3><p class="mt-2 text-[13px] text-white/40 leading-[1.6]">Automatize 80% do fluxo com modelos integrados.</p></div></div>
+      <div class="feature-card reveal group relative rounded-[24px] border border-white/[0.08] bg-white/[0.02] p-7 overflow-hidden"><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition" style="background:radial-gradient(600px circle at var(--mx) var(--my), rgba(124,58,237,0.15), transparent 60%)"></div><div class="relative"><div class="w-10 h-10 rounded-xl bg-white/5 grid place-items-center text-[18px]">💎</div><h3 class="mt-4 font-semibold">Design System Vivo</h3><p class="mt-2 text-[13px] text-white/40 leading-[1.6]">Componentes que evoluem com seu produto.</p></div></div>
+      <div class="feature-card reveal group relative rounded-[24px] border border-white/[0.08] bg-white/[0.02] p-7 overflow-hidden"><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition" style="background:radial-gradient(600px circle at var(--mx) var(--my), rgba(16,185,129,0.15), transparent 60%)"></div><div class="relative"><div class="w-10 h-10 rounded-xl bg-white/5 grid place-items-center text-[18px]">🔒</div><h3 class="mt-4 font-semibold">Segurança Quântica</h3><p class="mt-2 text-[13px] text-white/40 leading-[1.6]">Criptografia pós-quântica e zero-trust.</p></div></div>
+      <div class="feature-card reveal group relative rounded-[24px] border border-white/[0.08] bg-white/[0.02] p-7 overflow-hidden"><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition" style="background:radial-gradient(600px circle at var(--mx) var(--my), rgba(6,182,212,0.15), transparent 60%)"></div><div class="relative"><div class="w-10 h-10 rounded-xl bg-white/5 grid place-items-center text-[18px]">🌐</div><h3 class="mt-4 font-semibold">Escala Infinita</h3><p class="mt-2 text-[13px] text-white/40 leading-[1.6]">De 1 para 10 milhões sem reescrever nada.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="py-16 border-y border-white/[0.06] bg-black">
+  <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="reveal"><div class="display text-[40px]"><span class="counter" data-target="12743">0</span>+</div><div class="text-[13px] text-white/60">Criadores ativos</div><div class="text-[11px] text-white/25">crescendo 12% ao mês</div></div>
+    <div class="reveal"><div class="display text-[40px]"><span class="counter" data-target="99.9" data-decimal="1">0</span>%</div><div class="text-[13px] text-white/60">Uptime garantido</div><div class="text-[11px] text-white/25">SLA com reembolso real</div></div>
+    <div class="reveal"><div class="display text-[40px]"><span class="counter" data-target="482">0</span>ms</div><div class="text-[13px] text-white/60">Tempo médio resposta</div><div class="text-[11px] text-white/25">mais rápido que um piscar</div></div>
+    <div class="reveal"><div class="display text-[40px]"><span class="counter" data-target="4.9" data-decimal="1">0</span>/5</div><div class="text-[13px] text-white/60">Avaliação na G2</div><div class="text-[11px] text-white/25">por quem realmente usa</div></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="precos" class="py-24 bg-[#08080b]">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <h2 class="reveal display text-[36px] md:text-[52px] text-center leading-[0.9]">Preço simples.<br><span class="serif italic font-normal">Escala quando você escalar.</span></h2>
+    <div class="mt-12 grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
+      <div class="reveal rounded-[24px] border border-white/10 bg-white/[0.02] p-8"><div class="text-[13px] text-white/40">Starter</div><div class="mt-2 display text-[36px]">R$0</div><div class="mt-6 space-y-2 text-[13px] text-white/50"><div>✓ 3 projetos</div><div>✓ Deploy ilimitado</div><div>✓ Domínio custom</div></div><button class="mt-8 w-full h-11 rounded-full border border-white/10 bg-white/5">Começar grátis</button></div>
+      <div class="reveal rounded-[24px] border border-white/20 bg-[radial-gradient(800px_circle_at_50%_0%,rgba(124,58,237,0.25),transparent_60%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-8 relative shadow-[0_0_60px_rgba(124,58,237,0.25)]"><div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white text-black text-[10px] font-bold tracking-widest">MAIS POPULAR</div><div class="text-[13px] text-white/60">Pro</div><div class="mt-2 display text-[36px]">R$89<span class="text-[16px] text-white/40">/mês</span></div><div class="mt-6 space-y-2 text-[13px] text-white/70"><div>✓ Projetos ilimitados</div><div>✓ IA generativa</div><div>✓ 10M requests</div><div>✓ Suporte prioritário</div></div><button class="mt-8 w-full h-11 rounded-full bg-white text-black font-semibold">Assinar Pro</button></div>
+      <div class="reveal rounded-[24px] border border-white/10 bg-white/[0.02] p-8"><div class="text-[13px] text-white/40">Scale</div><div class="mt-2 display text-[36px]">R$349</div><div class="mt-6 space-y-2 text-[13px] text-white/50"><div>✓ Tudo do Pro</div><div>✓ SSO + SAML</div><div>✓ SLA 99.99%</div><div>✓ On-premise</div></div><button class="mt-8 w-full h-11 rounded-full border border-white/10 bg-white/5">Falar com vendas</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS MARQUEE -->
+<section id="depoimentos" class="py-16 border-t border-white/[0.06] bg-[#08080b] overflow-hidden">
+  <div class="max-w-[1200px] mx-auto px-6 flex justify-between items-center mb-8"><h3 class="reveal display text-[28px]">Amada por quem<br>constrói o amanhã.</h3><span class="hidden md:flex items-center gap-2 text-[11px] text-white/30"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Ao vivo: 1.247 editando</span></div>
+  <div class="relative"><div class="flex gap-5 animate-[marquee_40s_linear_infinite] w-max">
+    <div class="w-[360px] shrink-0 rounded-[20px] border border-white/[0.08] bg-white/[0.03] p-6"><p class="text-[14px] text-white/70">“A NEXUS nos fez economizar 6 meses de desenvolvimento. É assustadoramente boa.”</p><div class="mt-4 flex gap-3 items-center"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400"></div><div><div class="text-[12px] font-semibold">Ana Silva</div><div class="text-[10px] text-white/40">CTO @Vértice</div></div></div></div>
+    <div class="w-[360px] shrink-0 rounded-[20px] border border-white/[0.08] bg-white/[0.03] p-6"><p class="text-[14px] text-white/70">“Parece que estamos usando algo de 2030. Nossos usuários sentiram na hora.”</p><div class="mt-4 flex gap-3 items-center"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-pink-500"></div><div><div class="text-[12px] font-semibold">Rafael Kim</div><div class="text-[10px] text-white/40">Founder @Fluxo</div></div></div></div>
+    <div class="w-[360px] shrink-0 rounded-[20px] border border-white/[0.08] bg-white/[0.03] p-6"><p class="text-[14px] text-white/70">“O nível de polimento é Apple-level. E a performance é insana.”</p><div class="mt-4 flex gap-3 items-center"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-blue-500"></div><div><div class="text-[12px] font-semibold">Juliana Costa</div><div class="text-[10px] text-white/40">Product Lead @Nômade</div></div></div></div>
+    <!-- duplicate for loop -->
+    <div class="w-[360px] shrink-0 rounded-[20px] border border-white/[0.08] bg-white/[0.03] p-6"><p class="text-[14px] text-white/70">“A NEXUS nos fez economizar 6 meses de desenvolvimento. É assustadoramente boa.”</p><div class="mt-4 flex gap-3 items-center"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400"></div><div><div class="text-[12px] font-semibold">Ana Silva</div><div class="text-[10px] text-white/40">CTO @Vértice</div></div></div></div>
+    <div class="w-[360px] shrink-0 rounded-[20px] border border-white/[0.08] bg-white/[0.03] p-6"><p class="text-[14px] text-white/70">“Parece que estamos usando algo de 2030. Nossos usuários sentiram na hora.”</p><div class="mt-4 flex gap-3 items-center"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-pink-500"></div><div><div class="text-[12px] font-semibold">Rafael Kim</div><div class="text-[10px] text-white/40">Founder @Fluxo</div></div></div></div>
+  </div></div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="relative py-32 text-center overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[#050507]"><div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] rounded-full bg-gradient-to-r from-violet-600/40 via-fuchsia-500/30 to-cyan-400/30 blur-[120px]"></div></div>
+  <div class="max-w-[800px] mx-auto px-6">
+    <div class="reveal inline-flex px-3 py-1 rounded-full bg-white text-black text-[11px] font-bold tracking-widest">NEXUS • V2.0 JÁ DISPONÍVEL</div>
+    <h2 class="reveal display text-[44px] md:text-[72px] leading-[0.9] mt-6">Pronto para<br><span class="serif italic font-normal">dominar</span> o futuro?</h2>
+    <p class="reveal mt-6 text-white/40">Junte-se a 12.743 criadores. Setup em 23 segundos.</p>
+    <div class="reveal mt-8 flex justify-center gap-4"><button class="h-14 px-10 rounded-full bg-white text-black font-semibold">Criar conta gratuita →</button><button class="h-14 px-10 rounded-full border border-white/15 bg-white/5">Agendar demo</button></div>
+  </div>
+</section>
+
+<footer class="relative border-t border-white/10 bg-black overflow-hidden">
+  <div class="absolute inset-0 opacity-30"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px); background-size:40px 40px; animation:gridMove 20s linear infinite"></div></div>
+  <div class="relative max-w-[1200px] mx-auto px-6 py-12 flex justify-between"><div class="text-[12px] text-white/30">© 2026 NEXUS LABS LTDA. Feito com obsessão em SP & remoto.</div><div class="text-[11px] text-white/30 flex gap-2 items-center"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Todos os sistemas operacionais</div></div>
+</footer>
+
+<script>
+// Progress bar + nav
+const prog = document.getElementById('progress');
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  const total = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (scrollY/total*100)+'%';
+  if(scrollY>20){nav.classList.add('bg-black/60','backdrop-blur-2xl','border-white/10');} else {nav.classList.remove('bg-black/60','backdrop-blur-2xl','border-white/10');}
+},{passive:true});
+
+// Reveal
+const obs = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');}})}, {threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Cursor glow
+const cursor = document.getElementById('cursor');
+let mx=-100,my=-100, cx=-100, cy=-100;
+window.addEventListener('mousemove', e=>{mx=e.clientX; my=e.clientY;});
+(function loop(){cx+=(mx-cx)*0.08; cy+=(my-cy)*0.08; cursor.style.left=cx+'px'; cursor.style.top=cy+'px'; requestAnimationFrame(loop);})();
+
+// Tilt hero
+const heroCard = document.getElementById('heroCard');
+if(heroCard){heroCard.addEventListener('mousemove', e=>{const r=heroCard.getBoundingClientRect(); const px=(e.clientX-r.left)/r.width; const py=(e.clientY-r.top)/r.height; heroCard.style.transform=`perspective(1000px) rotateX(${(py-0.5)*-10}deg) rotateY(${(px-0.5)*12}deg)`;}); heroCard.addEventListener('mouseleave', ()=>{heroCard.style.transform='perspective(1000px) rotateX(0) rotateY(0)';});}
+
+// Feature spotlight
+document.querySelectorAll('.feature-card').forEach(card=>{card.addEventListener('mousemove', e=>{const r=card.getBoundingClientRect(); card.style.setProperty('--mx', (e.clientX-r.left)+'px'); card.style.setProperty('--my', (e.clientY-r.top)+'px');});});
+
+// Magnetic buttons
+document.querySelectorAll('.magnetic').forEach(btn=>{
+  btn.addEventListener('mousemove', e=>{const r=btn.getBoundingClientRect(); const x=e.clientX-r.left-r.width/2; const y=e.clientY-r.top-r.height/2; btn.style.transform=`translate(${x*0.25}px, ${y*0.25}px)`;});
+  btn.addEventListener('mouseleave', ()=>{btn.style.transform='translate(0,0)';});
+});
+
+// Counters
+const counters = document.querySelectorAll('.counter');
+const counterObs = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el=entry.target; const target=parseFloat(el.dataset.target); const isDec=el.dataset.decimal; let cur=0; const step=target/60;
+      const tick=()=>{cur+=step; if(cur<target){el.textContent=isDec?cur.toFixed(1):Math.floor(cur); requestAnimationFrame(tick);} else {el.textContent=target;}};
+      tick(); counterObs.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+counters.forEach(c=>counterObs.observe(c));
+
+// Particles canvas
+const canvas=document.getElementById('particles'); const ctx=canvas.getContext('2d');
+function resize(){canvas.width=innerWidth; canvas.height=innerHeight;} resize(); window.addEventListener('resize', resize);
+const dots=[]; for(let i=0;i<60;i++) dots.push({x:Math.random()*innerWidth, y:Math.random()*innerHeight, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4, r:Math.random()*1.5+0.5});
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height); dots.forEach(d=>{d.x+=d.vx; d.y+=d.vy; if(d.x<0||d.x>canvas.width) d.vx*=-1; if(d.y<0||d.y>canvas.height) d.vy*=-1; ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fillStyle='rgba(255,255,255,0.25)'; ctx.fill();}); dots.forEach((a,i)=>{dots.slice(i+1).forEach(b=>{const dx=a.x-b.x, dy=a.y-b.y, dist=Math.sqrt(dx*dx+dy*dy); if(dist<140){ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=`rgba(255,255,255,${0.08*(1-dist/140)})`; ctx.stroke();}});}); requestAnimationFrame(draw);} draw();
+</script>
+</body>
+</html>
